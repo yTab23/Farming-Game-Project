@@ -588,6 +588,7 @@ GameObject:
   - component: {fileID: 2170315919785096359}
   - component: {fileID: 650848501}
   - component: {fileID: 650848502}
+  - component: {fileID: 650848503}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -681,6 +682,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.96, y: 0.13}
   m_EdgeRadius: 0
+--- !u!114 &650848503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650848499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6026b2d7679bd1a42bb0744d300301a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &788860859
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +820,7 @@ GameObject:
   - component: {fileID: 835727078}
   - component: {fileID: 835727077}
   - component: {fileID: 835727079}
+  - component: {fileID: 835727080}
   m_Layer: 0
   m_Name: PlayerFollowVirtualCamera
   m_TagString: Untagged
@@ -881,6 +895,18 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 0}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!114 &835727080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835727076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86b074e29c6c8a947a68dc00a4ea523f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1286969885
 GameObject:
   m_ObjectHideFlags: 0

@@ -70575,6 +70575,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoundsConfiner
       objectReference: {fileID: 0}
+    - target: {fileID: 5499471697158150669, guid: 3bd3f5b3e1c3afa498a794b08a167fef, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5499471697158150670, guid: 3bd3f5b3e1c3afa498a794b08a167fef, type: 3}
       propertyPath: m_RootOrder
       value: 2

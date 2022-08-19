@@ -30,7 +30,9 @@ public class Player : SingletonMonoBehaviour<Player>
 
     private new Rigidbody2D rigidbody2D;
 
+#pragma warning disable 414
     private Direction playerDirection;
+#pragma warning restore 414
 
     private float movementSpeed;
 
