@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: instances
+    uniqueID: 358860901
+    locked: 0
