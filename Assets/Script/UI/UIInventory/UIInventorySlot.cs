@@ -17,6 +17,7 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  
     [HideInInspector] public ItemDetails itemDetails;
     [SerializeField] private GameObject itemPrefab = null;
     [HideInInspector] public int itemQuantity;
+    [SerializeField] private int slotNumber = 0;
 
     private void Start() 
     {
@@ -81,9 +82,13 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  
             // If drag ends over inventory bar, get item dragis over and swap items
             if(eventData.pointerCurrentRaycast.gameObject !=null && eventData.pointerCurrentRaycast.gameObject.GetComponent<UIInventorySlot>() != null)
             {
-     
+                // Get the slot number where the drag ended
+                int toSlotNumber = eventData.pointerCurrentRaycast.gameObject.GetComponent<UIInventorySlot>().slotNumber;
+
+                // Swap inventory items in inventory list
+                InventoryManager.Instance.SwapInventoryItems(InventoryLocation.player, slotNumber, toSlotNumber);
             }
-            // Else attempt to drop the item if it can bedropped
+            // else attempt to drop the item if it can bedropped
             else
             {
                 if (itemDetails.canBeDropped)
