@@ -57,21 +57,25 @@ public class Player : SingletonMonoBehaviour<Player>
     {
         #region Player Input
 
-        ResetAnimationTriggers();
+        if(!PlayerInputIsDisabled)
+        {
+            ResetAnimationTriggers();
 
-        PlayerMovementInput();
+            PlayerMovementInput();
 
-        PlayerWalkInput();
+            PlayerWalkInput();
 
-        EventHandler.CallMovementEvent(
-            xInput, yInput,
-            isWalking, isRunning, isIdle, isCarrying,
-            toolEffect,
-            isUsingToolRight, isUsingToolLeft, isUsingToolUp, isUsingToolDown,
-            isLiftingToolRight, isLiftingToolLeft, isLiftingToolUp, isLiftingToolDown,
-            isSwingingToolRight, isSwingingToolLeft, isSwingingToolUp, isSwingingToolDown,
-            isPickingRight, isPickingLeft, isPickingUp, isPickingDown, 
-            false, false, false, false);
+            EventHandler.CallMovementEvent(
+                xInput, yInput,
+                isWalking, isRunning, isIdle, isCarrying,
+                toolEffect,
+                isUsingToolRight, isUsingToolLeft, isUsingToolUp, isUsingToolDown,
+                isLiftingToolRight, isLiftingToolLeft, isLiftingToolUp, isLiftingToolDown,
+                isSwingingToolRight, isSwingingToolLeft, isSwingingToolUp, isSwingingToolDown,
+                isPickingRight, isPickingLeft, isPickingUp, isPickingDown, 
+                false, false, false, false);
+        }
+
 
         #endregion
     }
@@ -172,11 +176,49 @@ public class Player : SingletonMonoBehaviour<Player>
         toolEffect = ToolEffect.none;
     }
 
+    private void ResetMovement()
+    {
+        //Reset movement
+        xInput = 0f;
+        yInput = 0f;
+        isRunning = false;
+        isWalking = false;
+        isIdle = true;
+    }
+
+    public void DisablePlayerInputAndResetMovement()
+    {
+        DisablePlayerInput();
+        ResetMovement();
+
+        // Send event to any listeners for player movement input
+        EventHandler.CallMovementEvent(
+            xInput, yInput,
+            isWalking, isRunning, isIdle, isCarrying,
+            toolEffect,
+            isUsingToolRight, isUsingToolLeft, isUsingToolUp, isUsingToolDown,
+            isLiftingToolRight, isLiftingToolLeft, isLiftingToolUp,isLiftingToolDown,
+            isSwingingToolRight, isSwingingToolLeft, isSwingingToolUp,isSwingingToolDown,
+            isPickingRight, isPickingLeft, isPickingUp, isPickingDown, 
+            false, false, false, false);
+    }
+
+
+    public void DisablePlayerInput()
+    {
+        PlayerInputIsDisabled = true;
+    }
+
+    public void EnablePlayerInput()
+    {
+        PlayerInputIsDisabled = false;
+    }
+
     public Vector3 GetPlayerViewportPosition()
     {
         // Vector3 viewport position for player ((0,0) viewport bottom left, (1,1) viewport top right
         return mainCamera.WorldToViewportPoint(transform.position);
     }
-    
+
 
 }

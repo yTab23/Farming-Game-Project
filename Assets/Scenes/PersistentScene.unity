@@ -398,6 +398,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4607602705082412816, guid: d6db84276910a5247a88bd76e927d171, type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 1794751183}
     - target: {fileID: 5774508920060580348, guid: d6db84276910a5247a88bd76e927d171, type: 3}
       propertyPath: m_Name
       value: UIInventorySlot10
@@ -626,6 +630,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4607602705082412816, guid: d6db84276910a5247a88bd76e927d171, type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 1794751183}
     - target: {fileID: 5774508920060580348, guid: d6db84276910a5247a88bd76e927d171, type: 3}
       propertyPath: m_Name
       value: UIInventorySlot5
@@ -993,6 +1001,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4607602705082412816, guid: d6db84276910a5247a88bd76e927d171, type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 1794751183}
     - target: {fileID: 5774508920060580348, guid: d6db84276910a5247a88bd76e927d171, type: 3}
       propertyPath: m_Name
       value: UIInventorySlot8
@@ -1106,6 +1118,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4607602705082412816, guid: d6db84276910a5247a88bd76e927d171, type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 1794751183}
     - target: {fileID: 5774508920060580348, guid: d6db84276910a5247a88bd76e927d171, type: 3}
       propertyPath: m_Name
       value: UIInventorySlot4
@@ -1622,6 +1638,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4607602705082412816, guid: d6db84276910a5247a88bd76e927d171, type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 1794751183}
     - target: {fileID: 5774508920060580348, guid: d6db84276910a5247a88bd76e927d171, type: 3}
       propertyPath: m_Name
       value: UIInventorySlot11
@@ -1801,6 +1821,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4607602705082412816, guid: d6db84276910a5247a88bd76e927d171, type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 1794751183}
     - target: {fileID: 5774508920060580348, guid: d6db84276910a5247a88bd76e927d171, type: 3}
       propertyPath: m_Name
       value: UIInventorySlot1
@@ -2029,6 +2053,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4607602705082412816, guid: d6db84276910a5247a88bd76e927d171, type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 1794751183}
     - target: {fileID: 5774508920060580348, guid: d6db84276910a5247a88bd76e927d171, type: 3}
       propertyPath: m_Name
       value: UIInventorySlot2
@@ -2421,6 +2449,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4607602705082412816, guid: d6db84276910a5247a88bd76e927d171, type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 1794751183}
     - target: {fileID: 5774508920060580348, guid: d6db84276910a5247a88bd76e927d171, type: 3}
       propertyPath: m_Name
       value: UIInventorySlot3
@@ -2565,6 +2597,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4607602705082412816, guid: d6db84276910a5247a88bd76e927d171, type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 1794751183}
     - target: {fileID: 5774508920060580348, guid: d6db84276910a5247a88bd76e927d171, type: 3}
       propertyPath: m_Name
       value: UIInventorySlot6
@@ -2735,6 +2771,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4607602705082412816, guid: d6db84276910a5247a88bd76e927d171, type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 1794751183}
     - target: {fileID: 5774508920060580348, guid: d6db84276910a5247a88bd76e927d171, type: 3}
       propertyPath: m_Name
       value: UIInventorySlot9
@@ -2833,6 +2873,7 @@ MonoBehaviour:
   - {fileID: 1759471150}
   - {fileID: 237373866}
   - {fileID: 878594470}
+  inventoryBarDraggedItem: {fileID: 3088254531105848809, guid: 84962dff875ba3a4fb54ae25e4f95bf5, type: 3}
 --- !u!114 &1794751184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3077,6 +3118,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4607602705082412816, guid: d6db84276910a5247a88bd76e927d171, type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 1794751183}
     - target: {fileID: 5774508920060580348, guid: d6db84276910a5247a88bd76e927d171, type: 3}
       propertyPath: m_Name
       value: UIInventorySlot7
@@ -3289,6 +3334,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4607602705082412816, guid: d6db84276910a5247a88bd76e927d171, type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 1794751183}
     - target: {fileID: 5774508920060580348, guid: d6db84276910a5247a88bd76e927d171, type: 3}
       propertyPath: m_Name
       value: UIInventorySlot0

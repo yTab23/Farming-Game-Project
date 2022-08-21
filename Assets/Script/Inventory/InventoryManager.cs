@@ -52,6 +52,43 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
     }
 
     /// <summary>
+    /// Removes an item from the inventory, and create a game object at the position it was dropped.
+    /// </summary>
+    public void RemoveItem(InventoryLocation inventoryLocation, int itemCode)
+    {
+        List<InventoryItem> inventoryList = inventoryLists[(int)inventoryLocation];
+
+        //Check if inventory already contains the item
+        int itemPosition = FindItemInInventory(inventoryLocation, itemCode);
+
+        if(itemPosition != -1)
+        {
+            RemoveItemAtPosition(inventoryList, itemCode, itemPosition);
+        }
+
+        // Send event that inventory has been updated
+        EventHandler.CallInventoryUpdatedEvent(inventoryLocation, inventoryLists[(int)inventoryLocation]);
+    }
+
+    private void RemoveItemAtPosition(List<InventoryItem> inventoryList, int itemCode, int position)
+    {
+        InventoryItem inventoryItem = new InventoryItem();
+
+        int quantity = inventoryList[position].itemQuantity - 1;
+
+        if(quantity > 0)
+        {
+            inventoryItem.itemQuantity = quantity;
+            inventoryItem.itemCode = itemCode;
+            inventoryList[position] = inventoryItem;
+        }
+        else
+        {
+            inventoryList.RemoveAt(position);
+        }
+    }
+
+    /// <summary>
     /// Add an item to the inventory list for inventoryLocation and then destroy the gameObjectToDelete
     /// </summary>
     public void AddItem(InventoryLocation inventoryLocation, Item item, GameObject gameObjectToDelete)
