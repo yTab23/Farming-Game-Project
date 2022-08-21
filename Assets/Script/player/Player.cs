@@ -40,7 +40,7 @@ public class Player : SingletonMonoBehaviour<Player>
 
     public bool PlayerInputIsDisabled { get => _playerInputIsDisabled; set => _playerInputIsDisabled = value; }
 
-    private void Awake() 
+    protected override void Awake() 
     {
         base.Awake();
 
