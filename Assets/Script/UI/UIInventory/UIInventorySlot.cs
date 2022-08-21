@@ -70,29 +70,47 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  
         }
     }
 
+
     public void OnEndDrag(PointerEventData eventData)
     {
-        // Destroy game object as dragged item
+        // Destroy gameObject as dragged item
         if(draggedItem != null)
         {
             Destroy(draggedItem);
-
-            //If drag ends over inventory bar, get item drag is over and swap them
-            if(eventData.pointerCurrentRaycast.gameObject != null && eventData.pointerCurrentRaycast.gameObject.GetComponent<UIInventorySlot>() != null)
+     
+            // If drag ends over inventory bar, get item dragis over and swap items
+            if(eventData.pointerCurrentRaycast.gameObject !=null && eventData.pointerCurrentRaycast.gameObject.GetComponent<UIInventorySlot>() != null)
             {
-
+     
             }
-            // else attempt to drop the item if it can be dropped
+            // Else attempt to drop the item if it can bedropped
             else
             {
-                if(itemDetails.canBeDropped)
+                if (itemDetails.canBeDropped)
                 {
-                    DropSelectedItemAtMousePosition();
+                    // Drop a full stack of items
+                    if (Input.GetKey(KeyCode.LeftShift))
+                    {
+                        // Store a temporary stackSize variable
+                        int stackSize = itemQuantity;
+     
+                        for(int i = 0; i < stackSize; i++)
+                        {
+                            DropSelectedItemAtMousePosition();
+                        }
+                    }
+                    // Drop a single item
+                    else
+                    {
+                        DropSelectedItemAtMousePosition();
+                    }
+                    
                 }
             }
-
-            //Enable player input
+     
+            // Enable player input
             Player.Instance.EnablePlayerInput();
         }
     }
+
 }
