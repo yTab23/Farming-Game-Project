@@ -104,4 +104,48 @@ public static class EventHandler
             AdvanceGameYearEvent(gameYear, gameSeason, gameDay, gameDayOfWeek, gameHour, gameMinute, gameSecond);
         }
     }
+
+    //Before Scene Unload Fade Out Event
+    public static event Action BeforeSceneUnloadFadeOutEvent;
+
+    public static void CallBeforeSceneUnloadFadeOutEvent()
+    {
+        if(BeforeSceneUnloadFadeOutEvent != null)
+        {
+            BeforeSceneUnloadFadeOutEvent();
+        }
+    }
+
+    //Before Scene Unload Fade Out Event
+    public static event Action BeforeSceneUnloadEvent;
+
+    public static void CallBeforeSceneUnloadEvent()
+    {
+        if(BeforeSceneUnloadEvent != null)
+        {
+            BeforeSceneUnloadEvent();
+        }
+    }
+
+    //After Scene Unload Fade Out Event
+    public static event Action AfterSceneLoadEvent;
+
+    public static void CallAfterSceneLoadEvent()
+    {
+        if(AfterSceneLoadEvent != null)
+        {
+            AfterSceneLoadEvent();
+        }
+    }
+
+    //After Scene Unload Fade Out Event
+    public static event Action AfterSceneLoadFadeInEvent;
+
+    public static void CallAfterSceneLoadFadeInEvent()
+    {
+        if(AfterSceneLoadFadeInEvent != null)
+        {
+            AfterSceneLoadFadeInEvent();
+        }
+    }
 }
