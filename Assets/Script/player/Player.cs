@@ -83,6 +83,8 @@ public class Player : SingletonMonoBehaviour<Player>
 
             PlayerWalkInput();
 
+            PlayerTestInput();
+
             EventHandler.CallMovementEvent(
                 xInput, yInput,
                 isWalking, isRunning, isIdle, isCarrying,
@@ -170,6 +172,22 @@ public class Player : SingletonMonoBehaviour<Player>
             isWalking = false;
             isIdle = false;
             movementSpeed = Settings.runningSpeed;         
+        }
+    }
+
+    //Testing purpose remove later
+    public void PlayerTestInput()
+    {
+        //Trigger Advance Time
+        if(Input.GetKey(KeyCode.T))
+        {
+            TimeManager.Instance.TestAdvanceGameMinute();
+        }
+
+        //Trigger Advance Day
+        if(Input.GetKey(KeyCode.G))
+        {
+            TimeManager.Instance.TestAdvanceGameDay();
         }
     }
 
