@@ -265,7 +265,7 @@ MonoBehaviour:
     canBePickedUp: 1
     canBeDropped: 1
     canBeEaten: 0
-    canBeCarried: 0
+    canBeCarried: 1
   - ItemCode: 10021
     itemType: 8
     itemDescription: Prickly Cactus
