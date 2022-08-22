@@ -202,8 +202,8 @@ MonoBehaviour:
     itemUseGridRadius: 0
     itemUseRadius: 0
     isStartingItem: 0
-    canBePickedUp: 0
-    canBeDropped: 0
+    canBePickedUp: 1
+    canBeDropped: 1
     canBeEaten: 0
     canBeCarried: 0
   - ItemCode: 10016
@@ -262,8 +262,8 @@ MonoBehaviour:
     itemUseGridRadius: 2
     itemUseRadius: 0
     isStartingItem: 0
-    canBePickedUp: 0
-    canBeDropped: 0
+    canBePickedUp: 1
+    canBeDropped: 1
     canBeEaten: 0
     canBeCarried: 0
   - ItemCode: 10021

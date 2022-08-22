@@ -50,6 +50,61 @@ public class UIInventoryBar : MonoBehaviour
                 inventorySlot[i].textMeshProUGUI.text = "";
                 inventorySlot[i].itemDetails = null;
                 inventorySlot[i].itemQuantity = 0;
+                SetHighlightedInventorySlots(i);
+            }
+        }
+    }
+
+
+    /// <summary>
+    /// Set the selected highlight if set on all inventory item positions
+    /// <summary>
+    public void SetHighlightedInventorySlots()
+    {
+        if(inventorySlot.Length > 0)
+        {
+            //loop through inventory slots and clear highlight sprites
+            for (int i = 0; i < inventorySlot.Length; i++)
+            {
+                SetHighlightedInventorySlots(i);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Set the selected highlight if set on an inventory item for a given slot item position
+    /// <summary>
+    public void SetHighlightedInventorySlots(int itemPosition)
+    {
+        if(inventorySlot.Length > 0 && inventorySlot[itemPosition].itemDetails != null)
+        {
+            if(inventorySlot[itemPosition].isSelected)
+            {
+                inventorySlot[itemPosition].inventorySlotHighlight.color = new Color(1f, 1f, 1f, 1f);
+
+                //Update inventory to show item as selected
+                InventoryManager.Instance.SetSelectedInventoryItem(InventoryLocation.player, inventorySlot[itemPosition].itemDetails.ItemCode);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Clear all highlights from the inventory bar
+    /// <summary>
+    public void ClearHighlightOnInventorySlots()
+    {
+        if(inventorySlot.Length > 0)
+        {
+            //Loop through inventory slots and clear highlight sprites
+            for (int i = 0; i < inventorySlot.Length; i++)
+            {
+                if(inventorySlot[i].isSelected)
+                {
+                    inventorySlot[i].isSelected = false;
+                    inventorySlot[i].inventorySlotHighlight.color = new Color(0f, 0f, 0f, 0f);
+                    //Update inventory to show items as not selected.
+                    InventoryManager.Instance.ClearSelectedInventoryItem(InventoryLocation.player);
+                }
             }
         }
     }
@@ -79,6 +134,7 @@ public class UIInventoryBar : MonoBehaviour
                             inventorySlot[i].textMeshProUGUI.text = inventoryList[i].itemQuantity.ToString();
                             inventorySlot[i].itemDetails = itemDetails;
                             inventorySlot[i].itemQuantity = inventoryList[i].itemQuantity;
+                            SetHighlightedInventorySlots(i); 
                         }
                     }
                     else

@@ -1,9 +1,10 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
+public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     private Camera mainCamera;
     private Canvas parentCanvas;
@@ -16,6 +17,7 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  
 
     [SerializeField] private UIInventoryBar inventoryBar = null;
     [SerializeField] private GameObject inventoryTextBoxPrefab = null;
+    [HideInInspector] public bool isSelected = false;
     [HideInInspector] public ItemDetails itemDetails;
     [SerializeField] private GameObject itemPrefab = null;
     [HideInInspector] public int itemQuantity;
@@ -34,11 +36,41 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  
 
 
     /// <summary>
+    /// Sets this inventory slot item to be selected
+    /// <summary>
+    private void SetSelectedItem()
+    {
+        // Clear currently highlighted items
+        inventoryBar.ClearHighlightOnInventorySlots();
+
+        // Highlight item on inventory bar
+        isSelected = true;
+
+        // Set highlighted inventory slots
+        inventoryBar.SetHighlightedInventorySlots();
+
+        // Set Item selected in inventory
+        InventoryManager.Instance.SetSelectedInventoryItem(InventoryLocation.player, itemDetails.ItemCode);
+    }
+
+    private void ClearSelectedItem()
+    {
+        // Clear currently highlighted items
+        inventoryBar.ClearHighlightOnInventorySlots();
+
+        isSelected = false;
+
+        // Set no item selected in inventory
+        InventoryManager.Instance.ClearSelectedInventoryItem(InventoryLocation.player);
+    }
+
+
+    /// <summary>
     /// Drops the item (if selected) at the current mouse position. Called by the DropItem event.
     /// </summary>
     private void DropSelectedItemAtMousePosition()
     {
-        if (itemDetails != null)
+        if (itemDetails != null && isSelected)
         {
             Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -mainCamera.transform.position.z));
 
@@ -49,6 +81,12 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  
 
             // Remove item from player's inventory
             InventoryManager.Instance.RemoveItem(InventoryLocation.player, item.ItemCode);
+
+            //If no more of item then clear selected
+            if(InventoryManager.Instance.FindItemInInventory(InventoryLocation.player, item.ItemCode) == -1)
+            {
+                ClearSelectedItem();
+            }
         }
     }
 
@@ -66,6 +104,8 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  
             // Get image for dragged item
             Image draggedItemImage = draggedItem.GetComponentInChildren<Image>();
             draggedItemImage.sprite = inventorySlotImage.sprite;
+
+            SetSelectedItem();
         }
     }
 
@@ -86,7 +126,7 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  
         {
             Destroy(draggedItem);
      
-            // If drag ends over inventory bar, get item dragis over and swap items
+            // If drag ends over inventory bar, get item drag is over and swap items
             if(eventData.pointerCurrentRaycast.gameObject !=null && eventData.pointerCurrentRaycast.gameObject.GetComponent<UIInventorySlot>() != null)
             {
                 // Get the slot number where the drag ended
@@ -97,6 +137,9 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  
 
                 // Destroy inventory text box
                 DestroyInventoryTextBox();
+
+                //Clear selected item
+                ClearSelectedItem();
             }
             // else attempt to drop the item if it can bedropped
             else
@@ -171,4 +214,27 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  
             Destroy(inventoryBar.inventoryTextBoxGameObject);
         }
     }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        // if left click
+        if(eventData.button == PointerEventData.InputButton.Left)
+        {
+            //if inventory slot currently selected then deselect
+            if(isSelected == true)
+            {
+                ClearSelectedItem();
+            }
+            else
+            {
+                if(itemQuantity > 0)
+                {
+                    SetSelectedItem();
+                }
+            }
+        }
+    }
+
+
+
 }

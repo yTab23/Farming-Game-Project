@@ -6,6 +6,8 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 {
     private Dictionary<int, ItemDetails> itemDetailsDictionary;
 
+    private int[] selectedInventoryItem; // the index of the array is the inventory list, and the value is the item code.
+
     public List<InventoryItem>[] inventoryLists;
 
     [HideInInspector] public int[] inventoryListCapacityIntArray; //the index of the array is the inventory list )from the InventoryLocation enum), and the value is the capacity of that inventory list
@@ -20,6 +22,14 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         CreateInventoryLists();
         //Create item details dictionary
         CreateItemDetailsDictionary();
+
+        //Initiaze selected inventory item array
+        selectedInventoryItem = new int[(int)InventoryLocation.count];
+
+        for (int i = 0; i < selectedInventoryItem.Length; i++)
+        {
+            selectedInventoryItem[i] = -1;
+        }
     }
 
     private void CreateInventoryLists()
@@ -161,6 +171,14 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         }
     }
 
+    ///<summary>
+    ///Clear the selected inventory item for inventoryLocation
+    ///</summary>
+    public void ClearSelectedInventoryItem(InventoryLocation inventoryLocation)
+    {
+        selectedInventoryItem[(int)inventoryLocation] = -1;
+    }
+
     /// <summary>
     /// Add an item to the inventory list for the inventoryLocation
     /// </summary>
@@ -246,6 +264,14 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         {
             return null;
         }
+    }
+
+    /// <summary>
+    /// Set the selected inventory item for inventoryLocation to itemCode
+    /// </summary>
+    public void SetSelectedInventoryItem(InventoryLocation inventoryLocation, int itemCode)
+    {
+        selectedInventoryItem[(int)inventoryLocation] = itemCode;
     }
 
     // private void DebugPrintInventoryList(List<InventoryItem> inventoryList)
