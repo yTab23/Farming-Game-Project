@@ -102,22 +102,23 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
     }
 
     /// <summary>
-    /// Removes an item from the inventory, and create a game object at the position it was dropped.
+    /// Remove an item from the inventory, and create a game object at the position it was dropped
     /// </summary>
     public void RemoveItem(InventoryLocation inventoryLocation, int itemCode)
     {
         List<InventoryItem> inventoryList = inventoryLists[(int)inventoryLocation];
 
-        //Check if inventory already contains the item
+        // Check if inventory already contains the item
         int itemPosition = FindItemInInventory(inventoryLocation, itemCode);
 
-        if(itemPosition != -1)
+        if (itemPosition != -1)
         {
             RemoveItemAtPosition(inventoryList, itemCode, itemPosition);
         }
 
-        // Send event that inventory has been updated
+        //  Send event that inventory has been updated
         EventHandler.CallInventoryUpdatedEvent(inventoryLocation, inventoryLists[(int)inventoryLocation]);
+
     }
 
     private void RemoveItemAtPosition(List<InventoryItem> inventoryList, int itemCode, int position)
@@ -126,7 +127,7 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
 
         int quantity = inventoryList[position].itemQuantity - 1;
 
-        if(quantity > 0)
+        if (quantity > 0)
         {
             inventoryItem.itemQuantity = quantity;
             inventoryItem.itemCode = itemCode;
@@ -264,6 +265,31 @@ public class InventoryManager : SingletonMonoBehaviour<InventoryManager>
         {
             return null;
         }
+    }
+
+    /// <summary>
+    /// Returns the itemDetails (from the SO_ItemList) for the currently selected item in the inventoryLocation, or null if an item isn't selected
+    /// </summary>
+    public ItemDetails GetSelectedInventoryItemDetails(InventoryLocation inventoryLocation)
+    {
+        int itemCode = GetSelectedInventoryItem(inventoryLocation);
+
+        if(itemCode == -1)
+        {
+            return null;
+        }
+        else
+        {
+            return GetItemDetails(itemCode);
+        }
+    }
+
+    /// <summary>
+    /// Get the selected item for inventoryLocation - returns itemCode or -1 if nothing is selected.
+    /// </summary>
+    private int GetSelectedInventoryItem(InventoryLocation inventoryLocation)
+    {
+        return selectedInventoryItem[(int)inventoryLocation];
     }
 
     /// <summary>

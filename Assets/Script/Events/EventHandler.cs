@@ -13,12 +13,30 @@ public delegate void MovementDelegate(
 
 public static class EventHandler
 {
+    // Drop selected item event
+    public static event Action DropSelectedItemEvent;
+
+    public static void CallDropSelectedItemEvent()
+    {
+        if (DropSelectedItemEvent != null)
+            DropSelectedItemEvent();
+    }
+
+    // Remove selected item from inventory
+    public static event Action RemoveSelectedItemFromInventoryEvent;
+
+    public static void CallRemoveSelectedItemFromInventoryEvent()
+    {
+        if (RemoveSelectedItemFromInventoryEvent != null)
+            RemoveSelectedItemFromInventoryEvent();
+    }
+
     // Inventory Updated Event
     public static event Action<InventoryLocation, List<InventoryItem>> InventoryUpdatedEvent;
 
     public static void CallInventoryUpdatedEvent(InventoryLocation inventoryLocation, List<InventoryItem> inventoryList)
     {
-        if(InventoryUpdatedEvent != null)
+        if (InventoryUpdatedEvent != null)
             InventoryUpdatedEvent(inventoryLocation, inventoryList);
     }
 
@@ -52,6 +70,7 @@ public static class EventHandler
 
     // Time Events
     public static event Action<int, Season, int, string, int, int, int> AdvanceGameMinuteEvent;
+    
     //Advance game minute
     public static void CallAdvanceGameMinuteEvent(int gameYear, Season gameSeason, int gameDay, string gameDayOfWeek, int gameHour, int gameMinute, int gameSecond)
     {
