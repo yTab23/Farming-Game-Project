@@ -424,9 +424,12 @@ public class Player : SingletonMonoBehaviour<Player>
         {
             gridPropertyDetails.daysSinceWatered = 0;
         }
-        
+
         //Set grid property to watered
         GridPropertiesManager.Instance.SetGridPropertyDetails(gridPropertyDetails.gridX, gridPropertyDetails.gridY, gridPropertyDetails);
+
+        // Display watered grid tiles
+        GridPropertiesManager.Instance.DisplayWateredGround(gridPropertyDetails);
 
         //After animation pause
         yield return afterLiftToolAnimationPause;
