@@ -189,7 +189,7 @@ public class GridPropertiesManager : SingletonMonoBehaviour<GridPropertiesManage
     /// <summary>
     /// Set the grid property details to gridPropertyDetails for the tile at (gridX, gridY) for the current scene.
     /// <summary> 
-    private void SetGridPropertyDetails(int gridX, int gridY, GridPropertyDetails gridPropertyDetails)
+    public void SetGridPropertyDetails(int gridX, int gridY, GridPropertyDetails gridPropertyDetails)
     {
         SetGridPropertyDetails(gridX, gridY, gridPropertyDetails, gridPropertyDictionary);
     }

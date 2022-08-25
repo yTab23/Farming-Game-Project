@@ -9,16 +9,19 @@ public static class Settings
 
     //Tilemap
     public const float gridCellSize = 1f; // grid cell size in unity units.
+    public static Vector2 cursorSize = Vector2.one;
 
     // Player Movement
     public const float runningSpeed = 5.333f;
     public const float walkingSpeed = 2.666f;
+    public static float useToolAnimationPause = 0.25f;
+    public static float afterUseToolAnimationPause = 0.2f;
 
     //Inventory
     public static int playerInitialInventoryCapacity = 24;
     public static int playerMaximumInventoryCapacity = 48;
 
-    // Player Animatioon Parameters
+    // Player Animation Parameters
     public static int xInput;
     public static int yInput;
     public static int isWalking;
