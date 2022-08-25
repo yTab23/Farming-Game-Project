@@ -55,7 +55,7 @@ MonoBehaviour:
     itemDescription: A Basic Watering Can
     itemSprite: {fileID: 21300136, guid: 853ac38383c680342ac7e688bf29b197, type: 3}
     itemLongDescription: A humble watering can
-    itemUseGridRadius: 1
+    itemUseGridRadius: 0
     itemUseRadius: 0
     isStartingItem: 1
     canBePickedUp: 1
@@ -67,7 +67,7 @@ MonoBehaviour:
     itemDescription: Basic Hoe
     itemSprite: {fileID: 21300052, guid: 853ac38383c680342ac7e688bf29b197, type: 3}
     itemLongDescription: Cheap ass hoe
-    itemUseGridRadius: 1
+    itemUseGridRadius: 0
     itemUseRadius: 0
     isStartingItem: 1
     canBePickedUp: 1
@@ -79,7 +79,7 @@ MonoBehaviour:
     itemDescription: A Basic Axe
     itemSprite: {fileID: 21300010, guid: 853ac38383c680342ac7e688bf29b197, type: 3}
     itemLongDescription: A sturdy axe.
-    itemUseGridRadius: 1
+    itemUseGridRadius: 0
     itemUseRadius: 0
     isStartingItem: 1
     canBePickedUp: 1
@@ -163,7 +163,7 @@ MonoBehaviour:
     itemDescription: Wicker Basket
     itemSprite: {fileID: 21300504, guid: 853ac38383c680342ac7e688bf29b197, type: 3}
     itemLongDescription: No! Not the Bees!
-    itemUseGridRadius: 1
+    itemUseGridRadius: 0
     itemUseRadius: 0
     isStartingItem: 1
     canBePickedUp: 1
@@ -175,7 +175,7 @@ MonoBehaviour:
     itemDescription: A Basic Pick Axe
     itemSprite: {fileID: 21300094, guid: 853ac38383c680342ac7e688bf29b197, type: 3}
     itemLongDescription: A strong, sturdy pickaxe
-    itemUseGridRadius: 1
+    itemUseGridRadius: 0
     itemUseRadius: 0
     isStartingItem: 1
     canBePickedUp: 1
@@ -223,7 +223,7 @@ MonoBehaviour:
     itemDescription: A Basic Scythe
     itemSprite: {fileID: 21300506, guid: 853ac38383c680342ac7e688bf29b197, type: 3}
     itemLongDescription: Great for cutting grass, and claiming souls
-    itemUseGridRadius: 2
+    itemUseGridRadius: 0
     itemUseRadius: 1.5
     isStartingItem: 1
     canBePickedUp: 1
