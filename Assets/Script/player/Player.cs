@@ -7,6 +7,8 @@ public class Player : SingletonMonoBehaviour<Player>
     private WaitForSeconds afterUseToolAnimationPause;
     private AnimationOverrides animationOverrides;
     private GridCursor gridCursor;
+    private Cursor cursor;
+
 
     // Movement Parameters
     private float xInput;
@@ -354,6 +356,9 @@ public class Player : SingletonMonoBehaviour<Player>
         }
         //Set grid property to dug
         GridPropertiesManager.Instance.SetGridPropertyDetails(gridPropertyDetails.gridX, gridPropertyDetails.gridY, gridPropertyDetails);
+
+        //Display gid grid tiles
+        GridPropertiesManager.Instance.DisplayDugGround(gridPropertyDetails);
 
         //After animation pause
         yield return afterUseToolAnimationPause;
