@@ -350,7 +350,6 @@ public class Player : SingletonMonoBehaviour<Player>
 
     private void ProcessPlayerClickInputTool(GridPropertyDetails gridPropertyDetails, ItemDetails itemDetails, Vector3Int playerDirection)
     {
-         Debug.Log("Item type: " + itemDetails.itemType);
         //Switch on tool
         switch(itemDetails.itemType)
         {
@@ -358,7 +357,6 @@ public class Player : SingletonMonoBehaviour<Player>
             case ItemType.Hoeing_tool:
                 if(gridCursor.CursorPositionIsValid)
                 {
-                    Debug.Log("Hoeing");
                     HoeGroundAtCursor(gridPropertyDetails, playerDirection);
                 }
             break;
@@ -570,6 +568,9 @@ public class Player : SingletonMonoBehaviour<Player>
                     {
                         // Effect position
                         Vector3 effectPosition = new Vector3(itemArray[i].transform.position.x, itemArray[i].transform.position.y + Settings.gridCellSize / 2f, itemArray[i].transform.position.z);
+
+                        // Trigger Reaping effect
+                        EventHandler.CallHarvestActionEffectEvent(effectPosition, HarvestActionEffect.reaping);
 
                         Destroy(itemArray[i].gameObject);
 

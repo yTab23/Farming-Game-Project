@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public delegate void MovementDelegate(
     float xInput, float yInput, 
@@ -29,6 +30,17 @@ public static class EventHandler
     {
         if (RemoveSelectedItemFromInventoryEvent != null)
             RemoveSelectedItemFromInventoryEvent();
+    }
+
+    // Harvest Action Effect Event
+    public static event Action<Vector3, HarvestActionEffect> HarvestActionEffectEvent;
+
+    public static void CallHarvestActionEffectEvent(Vector3 effectPosition, HarvestActionEffect harvestActionEffect)
+    {
+        if(HarvestActionEffectEvent != null)
+        {
+            HarvestActionEffectEvent(effectPosition, harvestActionEffect);
+        }
     }
 
     // Inventory Updated Event
