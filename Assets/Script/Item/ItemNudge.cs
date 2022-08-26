@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemNudge : MonoBehaviour
@@ -8,16 +6,16 @@ public class ItemNudge : MonoBehaviour
     private WaitForSeconds pause;
     private bool isAnimating = false;
 
-    private void Awake() 
+    private void Awake()
     {
         pause = new WaitForSeconds(0.04f);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) 
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(isAnimating ==  false)
+        if (isAnimating == false)
         {
-            if(gameObject.transform.position.x < collision.gameObject.transform.position.x)
+            if (gameObject.transform.position.x < collision.gameObject.transform.position.x)
             {
                 StartCoroutine(RotateAntiClock());
             }
@@ -25,15 +23,22 @@ public class ItemNudge : MonoBehaviour
             {
                 StartCoroutine(RotateClock());
             }
+
+            //Play rustle sound if player
+            // if (collision.gameObject.tag == "Player")
+            // {
+            //     AudioManager.Instance.PlaySound(SoundName.effectRustle);
+            // }
+
+
         }
     }
 
-
-    private void OnTriggerExit2D(Collider2D collision) 
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if(isAnimating ==  false)
+        if (isAnimating == false)
         {
-            if(gameObject.transform.position.x > collision.gameObject.transform.position.x)
+            if (gameObject.transform.position.x > collision.gameObject.transform.position.x)
             {
                 StartCoroutine(RotateAntiClock());
             }
@@ -41,32 +46,14 @@ public class ItemNudge : MonoBehaviour
             {
                 StartCoroutine(RotateClock());
             }
+
+            //Play rustle sound if player
+            // if (collision.gameObject.tag == "Player")
+            // {
+            //     AudioManager.Instance.PlaySound(SoundName.effectRustle);
+            // }
+
         }
-    }
-
-    private IEnumerator RotateClock()
-    {
-        isAnimating = true;
-
-        for (int i = 0; i < 4; i++)
-        {
-            gameObject.transform.GetChild(0).Rotate(0f, 0f, -2f);
-
-            yield return pause;
-        }
-
-        for (int i = 0; i < 5; i++)
-        {
-            gameObject.transform.GetChild(0).Rotate(0f, 0f, 2f);
-
-            yield return pause;
-        }
-
-        gameObject.transform.GetChild(0).Rotate(0f, 0f, -2f);
-
-        yield return pause;
-
-        isAnimating = false;
     }
 
     private IEnumerator RotateAntiClock()
@@ -88,6 +75,31 @@ public class ItemNudge : MonoBehaviour
         }
 
         gameObject.transform.GetChild(0).Rotate(0f, 0f, 2f);
+
+        yield return pause;
+
+        isAnimating = false;
+    }
+
+    private IEnumerator RotateClock()
+    {
+        isAnimating = true;
+
+        for (int i = 0; i < 4; i++)
+        {
+            gameObject.transform.GetChild(0).Rotate(0f, 0f, -2f);
+
+            yield return pause;
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            gameObject.transform.GetChild(0).Rotate(0f, 0f, 2f);
+
+            yield return pause;
+        }
+
+        gameObject.transform.GetChild(0).Rotate(0f, 0f, -2f);
 
         yield return pause;
 
