@@ -557,5 +557,8 @@ public class Player : SingletonMonoBehaviour<Player>
         return mainCamera.WorldToViewportPoint(transform.position);
     }
 
-
+    public Vector3 GetPlayerCentrePosition()
+    {
+        return new Vector3(transform.position.x, transform.position.y + Settings.playerCentreYOffset, transform.position.z);
+    }
 }
