@@ -318,7 +318,9 @@ public class Player : SingletonMonoBehaviour<Player>
 
     private void PlantSeedAtCursor(GridPropertyDetails gridPropertyDetails, ItemDetails itemDetails)
     {
-
+        // Process if we have cropDetails for the seed
+        if(GridPropertiesManager.Instance.GetCropDetails(itemDetails.ItemCode) != null)
+        {
             // Update grid properties with seed details
             gridPropertyDetails.seedItemCode = itemDetails.ItemCode;
             gridPropertyDetails.growthDays = 0;
@@ -328,6 +330,7 @@ public class Player : SingletonMonoBehaviour<Player>
 
             // Remove item from inventory
             EventHandler.CallRemoveSelectedItemFromInventoryEvent();
+        }
 
     }
 
