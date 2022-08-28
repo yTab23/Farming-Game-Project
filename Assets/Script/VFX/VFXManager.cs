@@ -5,7 +5,7 @@ public class VFXManager : SingletonMonoBehaviour<VFXManager>
 {
 
     private WaitForSeconds twoSeconds;
-    // [SerializeField] private GameObject pineConesFallingPrefab = null;
+     [SerializeField] private GameObject pineConesFallingPrefab = null;
     [SerializeField] private GameObject choppingTreeTrunkPrefab = null;
     // [SerializeField] private GameObject breakingStonePrefab = null;
     [SerializeField] private GameObject deciduousLeavesFallingPrefab = null;
@@ -47,11 +47,11 @@ public class VFXManager : SingletonMonoBehaviour<VFXManager>
                 StartCoroutine(DisableHarvestActionEffect(deciduousLeaveFalling, twoSeconds));
                 break;
 
-            // case HarvestActionEffect.pineConesFalling:
-            //     GameObject pineConesFalling = PoolManager.Instance.ReuseObject(pineConesFallingPrefab, effectPosition, Quaternion.identity);
-            //     pineConesFalling.SetActive(true);
-            //     StartCoroutine(DisableHarvestActionEffect(pineConesFalling, twoSeconds));
-            //     break;
+            case HarvestActionEffect.pineConesFalling:
+                GameObject pineConesFalling = PoolManager.Instance.ReuseObject(pineConesFallingPrefab, effectPosition, Quaternion.identity);
+                pineConesFalling.SetActive(true);
+                StartCoroutine(DisableHarvestActionEffect(pineConesFalling, twoSeconds));
+                break;
 
             case HarvestActionEffect.choppingTreeTrunk:
                 GameObject choppingTreeTrunk = PoolManager.Instance.ReuseObject(choppingTreeTrunkPrefab, effectPosition, Quaternion.identity);
