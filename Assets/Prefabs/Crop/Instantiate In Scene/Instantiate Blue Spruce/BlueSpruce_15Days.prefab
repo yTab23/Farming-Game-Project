@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7464060168371267509
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 27414314573957422, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 9217379939570758284, guid: 5d22327a2a3d2a049a8a59a708d527fe, type: 3}
+    - target: {fileID: 48161693593575083, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 48161693593575083, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 48161693593575083, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 48161693593575083, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 48161693593575083, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 48161693593575083, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 48161693593575083, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 48161693593575083, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 48161693593575083, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 48161693593575083, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 48161693593575083, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017804790441256766, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: growthDays
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642946259833982102, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}
+      propertyPath: m_Name
+      value: BlueSpruce_15Days
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e4071d9f4fbb78743ad48f6230e6c0ef, type: 3}

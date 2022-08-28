@@ -9,6 +9,7 @@ public class GridPropertiesManager : SingletonMonoBehaviour<GridPropertiesManage
     private Transform cropParentTransform;
     private Tilemap groundDecoration1;
     private Tilemap groundDecoration2;
+    private bool isFirstTimeSceneLoaded = true;
     private Grid grid;
     private Dictionary<string, GridPropertyDetails> gridPropertyDictionary;
     [SerializeField] private SO_CropDetailsList so_CropDetailsList = null;
@@ -582,11 +583,15 @@ public class GridPropertiesManager : SingletonMonoBehaviour<GridPropertiesManage
             //Add grid property dictionary to scene save data.
             sceneSave.gridPropertyDetailsDictionary = gridPropertyDictionary;
 
-            //IF starting scene set the gridProopertyDictionmary member variable to the current iteration.
+            //If starting scene set the gridProopertyDictionmary member variable to the current iteration.
             if(so_GridProperties.sceneName.ToString() == SceneControllerManager.Instance.startingSceneName.ToString())
             {
                 this.gridPropertyDictionary = gridPropertyDictionary;
             }
+
+            // Add bool dictionary and set first time scene loaded to true.
+            sceneSave.boolDictionary = new Dictionary<string, bool>();
+            sceneSave.boolDictionary.Add("isFirstTimeSceneLoaded", true);
 
             // Add scene save to game object scene data
             GameObjectSave.sceneData.Add(so_GridProperties.sceneName.ToString(), sceneSave); 
@@ -615,6 +620,16 @@ public class GridPropertiesManager : SingletonMonoBehaviour<GridPropertiesManage
                 gridPropertyDictionary = sceneSave.gridPropertyDetailsDictionary;
             }
 
+            // get dictionary of bools = it exists since we created it in initialize
+            if(sceneSave.boolDictionary != null && sceneSave.boolDictionary.TryGetValue("isFirstTimeSceneLoaded", out bool storedFirstTimeSceneLoaded))
+            {
+                isFirstTimeSceneLoaded = storedFirstTimeSceneLoaded;
+            }
+
+            // Instantiate any crop prefabs initially present in the scene
+            if(isFirstTimeSceneLoaded)
+                EventHandler.CallInstantiateCropPrefabsEvent();
+
             // If grid properties exist
             if(gridPropertyDictionary.Count > 0)
             {
@@ -623,6 +638,12 @@ public class GridPropertiesManager : SingletonMonoBehaviour<GridPropertiesManage
 
                 //Instantiate grid property details for current scene
                 DisplayGridPropertyDetails();
+            }
+
+            // Update first timne scene loaded bool
+            if(isFirstTimeSceneLoaded == true)
+            {
+                isFirstTimeSceneLoaded = false;
             }
         }
     }
@@ -637,6 +658,10 @@ public class GridPropertiesManager : SingletonMonoBehaviour<GridPropertiesManage
 
         //create & add dict grid property details dictionary
         sceneSave.gridPropertyDetailsDictionary = gridPropertyDictionary;
+
+        // create & add bool dictionary for first time scene loaded
+        sceneSave.boolDictionary = new Dictionary<string, bool>();
+        sceneSave.boolDictionary.Add("isFirstTimeSceneLoaded", isFirstTimeSceneLoaded);
 
         // Add scene save to game object scene data
         GameObjectSave.sceneData.Add(sceneName, sceneSave);
