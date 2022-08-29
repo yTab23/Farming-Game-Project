@@ -115,7 +115,7 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  
         }
         else //show player carry nothing
         {
-            Player.Instance.ClearCarriedItems();
+            Player.Instance.ClearCarriedItem();
         }
     }
 
@@ -132,7 +132,7 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler,  
         InventoryManager.Instance.ClearSelectedInventoryItem(InventoryLocation.player);
         
         //Clear player carrying item
-        Player.Instance.ClearCarriedItems();
+        Player.Instance.ClearCarriedItem();
     }
 
 

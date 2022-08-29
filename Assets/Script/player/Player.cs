@@ -867,7 +867,7 @@ public class Player : SingletonMonoBehaviour<Player>
         PlayerInputIsDisabled = false;
     }
 
-    public void ClearCarriedItems()
+    public void ClearCarriedItem()
     {
         equippedItemSpriteRenderer.sprite = null;
         equippedItemSpriteRenderer.color = new Color(1f, 1f, 1f, 0);
