@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 [ExecuteAlways]
 public class TileMapGridProperties : MonoBehaviour
 {
+#if UNITY_EDITOR
     private Tilemap tilemap;
     [SerializeField] private SO_GridProperties gridProperties = null;
     [SerializeField] private GridBoolProperty gridBoolProperty = GridBoolProperty.diggable;
@@ -76,4 +77,5 @@ public class TileMapGridProperties : MonoBehaviour
             Debug.Log("DISABLE PROPERTY TILEMAPS");
         }
     }
+#endif
 }

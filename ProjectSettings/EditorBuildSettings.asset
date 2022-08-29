@@ -8,10 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PersistentScene.unity
     guid: 7ee94c5020d81a54e93db7313ab967b9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Scene1_Farm.unity
     guid: d6e1d68527a76fb45abef4e4a7a4ce47
+  - enabled: 1
+    path: Assets/Scenes/Scene2_Field.unity
+    guid: d42c1aca83390d3428de1bb2f1ba991d
+  - enabled: 1
+    path: Assets/Scenes/Scene3_Cabin.unity
+    guid: f4460fe0cb4a3f4448f560b6fcf49442
   m_configObjects: {}
