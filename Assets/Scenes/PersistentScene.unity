@@ -844,11 +844,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b92fef93592584bafd5b9523cb6753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {x: 25, y: 5}
+  startPosition: {x: 25, y: 29}
   finishPosition: {x: -19, y: -4}
   tileMapToDisplayPathOn: {fileID: 378493739}
   tileToUseToDisplayPath: {fileID: 11400000, guid: f02d21cd20d119644bb60eb27152dcde, type: 2}
-  displayStartAndFinish: 0
+  displayStartAndFinish: 1
   displayPath: 0
 --- !u!114 &129127689
 MonoBehaviour:
@@ -864,7 +864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   observeMovementPenalties: 1
   pathMovementPenalty: 0
-  defaultMovementPenalty: 0
+  defaultMovementPenalty: 5
 --- !u!4 &129127690
 Transform:
   m_ObjectHideFlags: 0
