@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(GenerateGUID))]
-public class GridPropertiesManager : SingletonMonoBehaviour<GridPropertiesManager>, ISaveable
+public class GridPropertiesManager : SingletonMonobehaviour<GridPropertiesManager>, ISaveable
 {
     private Transform cropParentTransform;
     private Tilemap groundDecoration1;

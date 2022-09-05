@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SaveLoadManager : SingletonMonoBehaviour<SaveLoadManager>
+public class SaveLoadManager : SingletonMonobehaviour<SaveLoadManager>
 {
 
     public GameSave gameSave;

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : SingletonMonoBehaviour<UIManager>
+public class UIManager : SingletonMonobehaviour<UIManager>
 {
     private bool _pauseMenuOn = false;
     [SerializeField] private GameObject pauseMenu = null;

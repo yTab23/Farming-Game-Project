@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeManager : SingletonMonoBehaviour<TimeManager>, ISaveable
+public class TimeManager : SingletonMonobehaviour<TimeManager>, ISaveable
 {
+
     private int gameYear = 1;
     private Season gameSeason = Season.Spring;
     private int gameDay = 1;
@@ -22,7 +23,7 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>, ISaveable
     private GameObjectSave _gameObjectSave;
     public GameObjectSave GameObjectSave { get { return _gameObjectSave; } set { _gameObjectSave = value; } }
 
-    protected override void Awake() 
+    protected override void Awake()
     {
         base.Awake();
 
@@ -56,14 +57,15 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>, ISaveable
         gameClockPaused = false;
     }
 
-    private void Start() 
+
+    private void Start()
     {
         EventHandler.CallAdvanceGameMinuteEvent(gameYear, gameSeason, gameDay, gameDayOfWeek, gameHour, gameMinute, gameSecond);
     }
 
-    private void Update() 
+    private void Update()
     {
-        if(!gameClockPaused)
+        if (!gameClockPaused)
         {
             GameTick();
         }
@@ -73,7 +75,7 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>, ISaveable
     {
         gameTick += Time.deltaTime;
 
-        if(gameTick >= Settings.secondsPerGameSecond)
+        if (gameTick >= Settings.secondsPerGameSecond)
         {
             gameTick -= Settings.secondsPerGameSecond;
 
@@ -83,24 +85,25 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>, ISaveable
 
     private void UpdateGameSecond()
     {
-        gameSecond ++;
+        gameSecond++;
 
-        if(gameSecond > 59)
+        if (gameSecond > 59)
         {
             gameSecond = 0;
             gameMinute++;
 
-            if(gameMinute > 59)
+
+            if (gameMinute > 59)
             {
                 gameMinute = 0;
                 gameHour++;
 
-                if(gameHour > 23)
+                if (gameHour > 23)
                 {
                     gameHour = 0;
                     gameDay++;
 
-                    if(gameDay > 30)
+                    if (gameDay > 30)
                     {
                         gameDay = 1;
 
@@ -108,34 +111,36 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>, ISaveable
                         gs++;
 
                         gameSeason = (Season)gs;
-                        
-                        if(gs > 3)
+
+                        if (gs > 3)
                         {
                             gs = 0;
                             gameSeason = (Season)gs;
 
                             gameYear++;
 
-                            if(gameYear > 9999)
-                            {
+                            if (gameYear > 9999)
                                 gameYear = 1;
-                            }
+
 
                             EventHandler.CallAdvanceGameYearEvent(gameYear, gameSeason, gameDay, gameDayOfWeek, gameHour, gameMinute, gameSecond);
                         }
-                        
+
                         EventHandler.CallAdvanceGameSeasonEvent(gameYear, gameSeason, gameDay, gameDayOfWeek, gameHour, gameMinute, gameSecond);
                     }
+
                     gameDayOfWeek = GetDayOfWeek();
                     EventHandler.CallAdvanceGameDayEvent(gameYear, gameSeason, gameDay, gameDayOfWeek, gameHour, gameMinute, gameSecond);
-                }      
+                }
+
                 EventHandler.CallAdvanceGameHourEvent(gameYear, gameSeason, gameDay, gameDayOfWeek, gameHour, gameMinute, gameSecond);
             }
+
             EventHandler.CallAdvanceGameMinuteEvent(gameYear, gameSeason, gameDay, gameDayOfWeek, gameHour, gameMinute, gameSecond);
 
-            //Debug.Log("Game Year: " + gameYear + "  Game Season: " + gameSeason + "   Game Day: " + gameDay + "   Game Hour: " + gameHour + "  Game Minute: " + gameMinute);
         }
-        // Call to advance game second event would go here if required.
+
+        // Call to advance game second event would go here if required
     }
 
     private string GetDayOfWeek()
@@ -143,7 +148,7 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>, ISaveable
         int totalDays = (((int)gameSeason) * 30) + gameDay;
         int dayOfWeek = totalDays % 7;
 
-        switch(dayOfWeek)
+        switch (dayOfWeek)
         {
             case 1:
                 return "Mon";
@@ -155,7 +160,7 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>, ISaveable
                 return "Wed";
 
             case 4:
-                return "Thur";
+                return "Thu";
 
             case 5:
                 return "Fri";
@@ -171,14 +176,30 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>, ISaveable
         }
     }
 
+    public TimeSpan GetGameTime()
+    {
+        TimeSpan gameTime = new TimeSpan(gameHour, gameMinute, gameSecond);
+
+        return gameTime;
+    }
+
+
+    //TODO:Remove
+    /// <summary>
+    /// Advance 1 game minute
+    /// </summary>
     public void TestAdvanceGameMinute()
     {
         for (int i = 0; i < 60; i++)
         {
-            UpdateGameSecond();   
+            UpdateGameSecond();
         }
     }
 
+    //TODO:Remove
+    /// <summary>
+    /// Advance 1 day
+    /// </summary>
     public void TestAdvanceGameDay()
     {
         for (int i = 0; i < 86400; i++)
@@ -186,7 +207,7 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>, ISaveable
             UpdateGameSecond();
         }
     }
-    
+
     public void ISaveableRegister()
     {
         SaveLoadManager.Instance.iSaveableObjectList.Add(this);

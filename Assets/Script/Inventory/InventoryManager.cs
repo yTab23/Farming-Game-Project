@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : SingletonMonoBehaviour<InventoryManager>, ISaveable
+public class InventoryManager : SingletonMonobehaviour<InventoryManager>, ISaveable
 {
     private Dictionary<int, ItemDetails> itemDetailsDictionary;
 

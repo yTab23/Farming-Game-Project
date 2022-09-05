@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : SingletonMonoBehaviour<Player>, ISaveable
+public class Player : SingletonMonobehaviour<Player>, ISaveable
 {
     private WaitForSeconds afterUseToolAnimationPause;
     private WaitForSeconds afterLiftToolAnimationPause;

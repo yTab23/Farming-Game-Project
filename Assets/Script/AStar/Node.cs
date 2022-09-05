@@ -11,6 +11,7 @@ public class Node : IComparable<Node>
     public int movementPenalty;
     public Node parentNode;
 
+
     public Node(Vector2Int gridPosition)
     {
         this.gridPosition = gridPosition;

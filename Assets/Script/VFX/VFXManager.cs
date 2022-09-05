@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class VFXManager : SingletonMonoBehaviour<VFXManager>
+public class VFXManager : SingletonMonobehaviour<VFXManager>
 {
 
     private WaitForSeconds twoSeconds;

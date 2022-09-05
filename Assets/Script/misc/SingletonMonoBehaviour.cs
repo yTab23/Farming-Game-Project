@@ -1,8 +1,9 @@
+
 using UnityEngine;
 
-public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T:MonoBehaviour
+public abstract class SingletonMonobehaviour<T> : MonoBehaviour where T:MonoBehaviour
 {
-    public static T instance;
+    private static T instance;
 
     public static T Instance
     {
@@ -10,12 +11,11 @@ public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T:MonoBeha
         {
             return instance;
         }
-        
     }
 
     protected virtual void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this as T;
         }
