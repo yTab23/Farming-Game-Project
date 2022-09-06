@@ -94,12 +94,11 @@ public class Crop : MonoBehaviour
             }
         }
 
-        // // Is there a harvested sound
-        // if (cropDetails.harvestSound != SoundName.none)
-        // {
-        //     AudioManager.Instance.PlaySound(cropDetails.harvestSound);
-        // }
-
+        // Is there a harvested sound
+        if (cropDetails.harvestSound != SoundName.none)
+        {
+            AudioManager.Instance.PlaySound(cropDetails.harvestSound);
+        }
 
         // Delete crop from grid properties
         gridPropertyDetails.seedItemCode = -1;

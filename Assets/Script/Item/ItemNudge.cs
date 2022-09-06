@@ -25,10 +25,10 @@ public class ItemNudge : MonoBehaviour
             }
 
             //Play rustle sound if player
-            // if (collision.gameObject.tag == "Player")
-            // {
-            //     AudioManager.Instance.PlaySound(SoundName.effectRustle);
-            // }
+            if (collision.gameObject.tag == "Player")
+            {
+                AudioManager.Instance.PlaySound(SoundName.effectRustle);
+            }
 
 
         }

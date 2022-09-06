@@ -98,7 +98,7 @@ MonoBehaviour:
     soundPitchRandomVariationMax: 1
     soundVolume: 0.188
   - soundName: 150
-    soundClip: {fileID: 8300000, guid: e23732cc1a3c7f54d9eb6d08e60772ca, type: 3}
+    soundClip: {fileID: 8300000, guid: 5d94ded4f36496d45bf497d00fa298a9, type: 3}
     soundDescription: Sound effect from Freesound cc0
     soundPitchRandomVariationMin: 0.8
     soundPitchRandomVariationMax: 1.2

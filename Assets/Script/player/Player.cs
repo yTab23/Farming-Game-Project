@@ -347,6 +347,10 @@ public class Player : SingletonMonobehaviour<Player>, ISaveable
 
             // Remove item from inventory
             EventHandler.CallRemoveSelectedItemFromInventoryEvent();
+
+            // Make planting sound
+            AudioManager.Instance.PlaySound(SoundName.effectPlantingSound);
+
         }
 
     }
@@ -448,6 +452,9 @@ public class Player : SingletonMonobehaviour<Player>, ISaveable
 
     private void BreakInPlayerDirection(GridPropertyDetails gridPropertyDetails, ItemDetails equippedItemDetails, Vector3Int playerDirection)
     {
+        // Play Sound
+        AudioManager.Instance.PlaySound(SoundName.effectPickaxe);
+
         StartCoroutine(BreakInPlayerDirectionRoutine(gridPropertyDetails, equippedItemDetails, playerDirection));
     }
 
@@ -476,7 +483,7 @@ public class Player : SingletonMonobehaviour<Player>, ISaveable
     private void CollectInPlayerDirection(GridPropertyDetails gridPropertyDetails, ItemDetails equippedItemDetails, Vector3Int playerDirection)
     {
         // Play sound
-        //AudioManager.Instance.PlaySound(SoundName.effectBasket);
+        AudioManager.Instance.PlaySound(SoundName.effectBasket);
 
         StartCoroutine(CollectInPlayerDirectionRoutine(gridPropertyDetails, equippedItemDetails, playerDirection));       
     }
@@ -499,6 +506,9 @@ public class Player : SingletonMonobehaviour<Player>, ISaveable
 
     private void HoeGroundAtCursor(GridPropertyDetails gridPropertyDetails,Vector3Int playerDirection)
     {
+        // Play Sound
+        AudioManager.Instance.PlaySound(SoundName.effectHoe);
+
         // Trigger animation
         StartCoroutine(HoeGroundAtCursorRoutine(playerDirection, gridPropertyDetails));
     }
@@ -553,6 +563,8 @@ public class Player : SingletonMonobehaviour<Player>, ISaveable
 
     private void WaterGroundAtCursor(GridPropertyDetails gridPropertyDetails, Vector3Int playerDirection)
     {
+        // Play Sound
+        AudioManager.Instance.PlaySound(SoundName.effectWateringCan);
         //Trigger Animation
         StartCoroutine(WaterGroundAtCursor(playerDirection, gridPropertyDetails));
     }
@@ -611,8 +623,8 @@ public class Player : SingletonMonobehaviour<Player>, ISaveable
 
     private void ChopInPlayerDirection(GridPropertyDetails gridPropertyDetails, ItemDetails equippedItemDetails, Vector3Int playerDirection)
     {
-        // Play sound
-        //AudioManager.Instance.PlaySound(SoundName.effectAxe);
+        //Play sound
+        AudioManager.Instance.PlaySound(SoundName.effectAxe);
 
         // Trigger animation
         StartCoroutine(ChopInPlayerDirectionRoutine(gridPropertyDetails, equippedItemDetails, playerDirection));
@@ -716,6 +728,9 @@ public class Player : SingletonMonobehaviour<Player>, ISaveable
 
                         // Trigger Reaping effect
                         EventHandler.CallHarvestActionEffectEvent(effectPosition, HarvestActionEffect.reaping);
+
+                        // Play Sound
+                        AudioManager.Instance.PlaySound(SoundName.effectScythe);
 
                         Destroy(itemArray[i].gameObject);
 
