@@ -13959,6 +13959,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5681941166788993929, guid: e2989a3ca6631124d91965a33770e75d, type: 3}
+      propertyPath: so_NPCScheduleEventList
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bc42470af5768f48b28fc848c31c004, type: 2}
     - target: {fileID: 7143985599724856974, guid: e2989a3ca6631124d91965a33770e75d, type: 3}
       propertyPath: m_Name
       value: NPC_Butch
