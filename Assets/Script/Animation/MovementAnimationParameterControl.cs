@@ -88,7 +88,7 @@ public class MovementAnimationParameterControl : MonoBehaviour
 
     private void AnimationEventPlayFootstepSound()
     {
-
+        AudioManager.Instance.PlaySound(SoundName.effectFootstepHardGround);
     }
 
 
